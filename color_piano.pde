@@ -6,14 +6,13 @@ void setup() {
   size(1000, 1000);
   noStroke();
   background(0);
-  rectWidth = width/50;
+  rectWidth = width/26;
 }
 
 void draw() { 
   // keep draw() here to continue looping while waiting for keys
 }
-
-
+int alpha = 0;
 void keyPressed() {
 
   int keyIndex = -1;
@@ -27,14 +26,24 @@ void keyPressed() {
     float blue = map(keyIndex , 0 , 25, 0 , 255);
     float green = map(keyIndex , 0 , 25, 0 , 255);
 
+  alpha = 50;
+  fill(0, alpha);
+  rect(0,0, width, height);
+
   if(keyIndex == -1)
   {
     background(0);
   }
   else
   {
-    fill(red+100, green+30, blue-70);
+    fill(random(100, 126), 113, 198);
     float x = map(keyIndex, 0, 25, 0, width - rectWidth);
     rect(x, 0, rectWidth, height);
   }
+  
+}
+
+void keyReleased(){
+  
+  
 }
