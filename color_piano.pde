@@ -1,4 +1,7 @@
 //http://processing.org/examples/keyboard.html
+Maxim maxim;
+AudioPlayer[] player = new AudioPlayer[26];
+
 
 int rectWidth;
    
@@ -7,6 +10,10 @@ void setup() {
   noStroke();
   background(0);
   rectWidth = width/26;
+  
+  maxim = new Maxim(this);
+  for(int i=0; i < 26; i++)
+  player[i] = maxim.LoadFile("key"+i+".wav");
 }
 
 void draw() { 
@@ -21,6 +28,8 @@ void keyPressed() {
   } else if (key >= 'a' && key <= 'z') {
     keyIndex = key - 'a';
   }
+  
+  player[keyIndex].play();
   
     float red = map(keyIndex , 0 , 25, 0 , 255);
     float blue = map(keyIndex , 0 , 25, 0 , 255);
