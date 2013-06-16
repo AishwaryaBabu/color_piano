@@ -13,7 +13,7 @@ void setup() {
   
   maxim = new Maxim(this);
   for(int i=0; i < 26; i++)
-  player[i] = maxim.LoadFile("key"+i+".wav");
+  player[i] = maxim.loadFile("key"+i+".wav");
 }
 
 void draw() { 
