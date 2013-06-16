@@ -20,16 +20,18 @@ void draw() {
   // keep draw() here to continue looping while waiting for keys
 }
 int alpha = 0;
+int var = 0;
+
 void keyPressed() {
 
   int keyIndex = -1;
   if (key >= 'A' && key <= 'Z') {
     keyIndex = key - 'A';
+    player[keyIndex].play();
   } else if (key >= 'a' && key <= 'z') {
     keyIndex = key - 'a';
+    player[keyIndex].play();
   }
-  
-  player[keyIndex].play();
   
     float red = map(keyIndex , 0 , 25, 0 , 255);
     float blue = map(keyIndex , 0 , 25, 0 , 255);
@@ -45,10 +47,11 @@ void keyPressed() {
   }
   else
   {
-    fill(random(100, 126), 113, 198);
+    fill(220, 100, random(100, 126));
     float x = map(keyIndex, 0, 25, 0, width - rectWidth);
     rect(x, 0, rectWidth, height);
   }
+  
   
 }
 
